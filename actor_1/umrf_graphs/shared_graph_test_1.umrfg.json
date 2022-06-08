@@ -1,0 +1,90 @@
+{
+    "graph_name": "shared_graph_test_1",
+    "graph_description": "",
+    "graph_state": 1,
+    "umrf_actions": [
+        {
+            "name": "TaSyncTest1",
+            "actor": "actor_1",
+            "package_name": "ta_sync_test_1",
+            "description": "test1",
+            "id": 0,
+            "effect": "synchronous",
+            "input_parameters": {
+                "my_string": {
+                    "pvf_type": "string",
+                    "pvf_value": "Greetings from the Operator"
+                }
+            },
+            "output_parameters": {
+                "my_string": {
+                    "pvf_type": "string"
+                }
+            },
+            "children": [
+                {
+                    "name": "TaSyncTest2",
+                    "id": 0
+                }
+            ]
+        },
+        {
+            "name": "TaSyncTest2",
+            "actor": "actor_2",
+            "package_name": "ta_sync_test_2",
+            "description": "test2",
+            "id": 0,
+            "effect": "synchronous",
+            "input_parameters": {
+                "my_string": {
+                    "pvf_type": "string"
+                }
+            },
+            "output_parameters": {
+                "my_string": {
+                    "pvf_type": "string"
+                }
+            },
+            "children": [
+                {
+                    "name": "TaSyncTest1",
+                    "id": 1
+                }
+            ],
+            "parents": [
+                {
+                    "name": "TaSyncTest1",
+                    "id": 0,
+                    "required": true,
+                    "stop_when_received": false
+                }
+            ]
+        },
+        {
+            "name": "TaSyncTest1",
+            "actor": "actor_1",
+            "package_name": "ta_sync_test_1",
+            "description": " test3",
+            "id": 1,
+            "effect": "synchronous",
+            "input_parameters": {
+                "my_string": {
+                    "pvf_type": "string"
+                }
+            },
+            "output_parameters": {
+                "my_string": {
+                    "pvf_type": "string"
+                }
+            },
+            "parents": [
+                {
+                    "name": "TaSyncTest2",
+                    "id": 0,
+                    "required": true,
+                    "stop_when_received": false
+                }
+            ]
+        }
+    ]
+}

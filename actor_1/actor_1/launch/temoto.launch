@@ -1,0 +1,25 @@
+<launch>
+  <arg name="temoto_namespace" default="actor_1"/>
+  <env name="TEMOTO_NAMESPACE" value="$(arg temoto_namespace)" />
+
+  <arg name="extra_wake_words" default="everybody"/>
+  <arg name="actions_path" default="$(find actor_1)/../temoto_actions" />
+  <arg name="actor_synchronizer_path" default="$(find ta_ros1_actor_synchronizer)" />
+  <arg name="component_config_base_path" default="$(find actor_1)/config" />
+  <arg name="respawn_nodes" default="true" />
+ 
+  <env name="ROSCONSOLE_FORMAT" value="[${function}] ${message}" />
+  <env name="ROSCONSOLE_CONFIG_FILE" value="$(find actor_1)/config/console.conf" />  
+
+  <group ns="$(arg temoto_namespace)">
+    <node name="temoto_action_engine" 
+          pkg="temoto_action_engine" 
+          type="action_engine_node" 
+          output="screen"
+          respawn="$(arg respawn_nodes)"
+          args="--wake-word $(arg temoto_namespace) 
+                --actions-path $(arg actions_path) 
+                --extra-wake-words $(arg extra_wake_words) 
+                --actor-synchronizer-path $(arg actor_synchronizer_path)"/>
+  </group>
+</launch>

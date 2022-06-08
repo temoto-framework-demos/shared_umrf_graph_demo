@@ -1,0 +1,15 @@
+{
+    "name": "TaSyncTest2",
+    "package_name": "ta_sync_test_2",
+    "effect": "synchronous",
+    "input_parameters": {
+        "my_string": {
+            "pvf_type": "string"
+        }
+    },
+    "output_parameters": {
+        "my_string": {
+            "pvf_type": "string"
+        }
+    }
+}
