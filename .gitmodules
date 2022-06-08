@@ -1,3 +1,6 @@
 [submodule "ta_ros1_actor_synchronizer"]
 	path = ta_ros1_actor_synchronizer
 	url = https://github.com/RValner/ta_ros1_actor_synchronizer
+[submodule "temoto_action_engine_ros1"]
+	path = temoto_action_engine_ros1
+	url = https://github.com/temoto-framework/temoto_action_engine_ros1
